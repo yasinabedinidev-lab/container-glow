@@ -6,8 +6,11 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 import { Badge } from "./ui/badge";
+import { useNavigate } from "react-router-dom";
 
 const Notifications = () => {
+  const navigate = useNavigate();
+  
   const notifications = [
     {
       id: 1,
@@ -78,7 +81,12 @@ const Notifications = () => {
           ))}
         </div>
         <div className="p-3 text-center border-t border-border">
-          <Button variant="ghost" size="sm" className="text-neon-cyan text-xs hover:bg-neon-blue/10">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="text-neon-cyan text-xs hover:bg-neon-blue/10"
+            onClick={() => navigate("/notifications")}
+          >
             مشاهده همه اعلان‌ها
           </Button>
         </div>

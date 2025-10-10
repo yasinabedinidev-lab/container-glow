@@ -5,8 +5,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "./ui/popover";
+import { useNavigate } from "react-router-dom";
 
 const BlogDropdown = () => {
+  const navigate = useNavigate();
+  
   const blogs = [
     {
       id: 1,
@@ -80,7 +83,12 @@ const BlogDropdown = () => {
           ))}
         </div>
         <div className="p-3 text-center border-t border-border bg-gradient-to-r from-transparent to-neon-cyan/5">
-          <Button variant="ghost" size="sm" className="text-neon-cyan text-xs hover:bg-neon-cyan/10 w-full">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="text-neon-cyan text-xs hover:bg-neon-cyan/10 w-full"
+            onClick={() => navigate("/blog")}
+          >
             مشاهده همه مقالات
           </Button>
         </div>
