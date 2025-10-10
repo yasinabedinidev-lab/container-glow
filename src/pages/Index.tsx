@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import ServicesPreview from "@/components/ServicesPreview";
 import FloatingContainers from "@/components/FloatingContainers";
 import PaaSInfo from "@/components/PaaSInfo";
+import SupportSection from "@/components/SupportSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -12,6 +14,8 @@ const Index = () => {
       <Hero />
       <PaaSInfo />
       <ServicesPreview />
+      <SupportSection />
+      <Footer />
     </div>
   );
 };

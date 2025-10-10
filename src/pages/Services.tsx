@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Container, Database, Globe, Shield, Cpu, HardDrive, Network, Lock, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingContainers from "@/components/FloatingContainers";
+import Footer from "@/components/Footer";
 
 const allServices = [
   {
@@ -150,6 +151,7 @@ const Services = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { GraduationCap, ExternalLink } from "lucide-react";
+import { BookOpen, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Popover,
@@ -6,8 +6,8 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 
-const TutorialDropdown = () => {
-  const tutorials = [
+const BlogDropdown = () => {
+  const blogs = [
     {
       id: 1,
       title: "PaaS چیست؟",
@@ -44,35 +44,35 @@ const TutorialDropdown = () => {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="ghost" className="gap-2 hover:bg-neon-cyan/10 transition-all group">
-          <GraduationCap className="w-5 h-5 text-neon-cyan group-hover:animate-glow-pulse" />
-          <span className="hidden md:inline text-foreground/80 group-hover:text-neon-cyan">آموزش</span>
+          <BookOpen className="w-5 h-5 text-neon-cyan group-hover:animate-glow-pulse" />
+          <span className="hidden md:inline text-foreground/80 group-hover:text-neon-cyan">وبلاگ</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-96 p-0 bg-card/95 backdrop-blur-lg border-neon-cyan/30">
         <div className="p-4 border-b border-border bg-gradient-to-r from-neon-cyan/10 to-transparent">
           <h3 className="font-bold text-neon-cyan flex items-center gap-2">
-            <GraduationCap className="w-5 h-5" />
-            راهنما و آموزش
+            <BookOpen className="w-5 h-5" />
+            وبلاگ و مقالات
           </h3>
           <p className="text-xs text-foreground/60 mt-1">
-            با مفاهیم پایه آشنا شوید
+            آخرین مقالات و آموزش‌ها
           </p>
         </div>
         <div className="max-h-[400px] overflow-y-auto p-2">
-          {tutorials.map((tutorial) => (
+          {blogs.map((blog) => (
             <div
-              key={tutorial.id}
+              key={blog.id}
               className="p-3 rounded-lg hover:bg-neon-cyan/5 transition-all cursor-pointer border border-transparent hover:border-neon-cyan/20 group"
             >
               <div className="flex items-start gap-3">
-                <div className="text-2xl">{tutorial.icon}</div>
+                <div className="text-2xl">{blog.icon}</div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-sm text-foreground group-hover:text-neon-cyan transition-colors flex items-center gap-2">
-                    {tutorial.title}
+                    {blog.title}
                     <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h4>
                   <p className="text-xs text-foreground/70 mt-1">
-                    {tutorial.description}
+                    {blog.description}
                   </p>
                 </div>
               </div>
@@ -81,7 +81,7 @@ const TutorialDropdown = () => {
         </div>
         <div className="p-3 text-center border-t border-border bg-gradient-to-r from-transparent to-neon-cyan/5">
           <Button variant="ghost" size="sm" className="text-neon-cyan text-xs hover:bg-neon-cyan/10 w-full">
-            مشاهده همه آموزش‌ها
+            مشاهده همه مقالات
           </Button>
         </div>
       </PopoverContent>
@@ -89,4 +89,4 @@ const TutorialDropdown = () => {
   );
 };
 
-export default TutorialDropdown;
+export default BlogDropdown;

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Container, Database, Globe, Shield, Cpu, HardDrive, Network, Lock, Check, ArrowRight, ShoppingCart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingContainers from "@/components/FloatingContainers";
+import Footer from "@/components/Footer";
 
 const servicesData: Record<string, any> = {
   "1": {
@@ -177,6 +178,7 @@ const ServiceDetail = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

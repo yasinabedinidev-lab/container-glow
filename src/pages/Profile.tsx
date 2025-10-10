@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { User, Container, HardDrive, Activity, Calendar, Settings, LogOut } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingContainers from "@/components/FloatingContainers";
+import Footer from "@/components/Footer";
 
 const userServices = [
   {
@@ -217,6 +218,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

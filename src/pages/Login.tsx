@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Container, Smartphone, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingContainers from "@/components/FloatingContainers";
+import Footer from "@/components/Footer";
 import { toast } from "sonner";
 
 const Login = () => {
@@ -158,6 +159,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

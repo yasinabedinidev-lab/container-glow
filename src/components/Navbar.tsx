@@ -3,7 +3,9 @@ import { Container, User, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import Notifications from "./Notifications";
-import TutorialDropdown from "./TutorialDropdown";
+import BlogDropdown from "./BlogDropdown";
+import { ShoppingCart } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 const Navbar = () => {
   const location = useLocation();
@@ -12,14 +14,16 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "صفحه اصلی" },
     { path: "/services", label: "سرویس‌ها" },
+    { path: "/support", label: "پشتیبانی" },
     { path: "/profile", label: "پروفایل" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border-b border-neon-blue/20 shadow-lg shadow-neon-blue/5">
-      <div className="container mx-auto px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border-b border-neon-blue/20 shadow-2xl shadow-neon-blue/10">
+      <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-cyan/5 pointer-events-none" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
@@ -52,12 +56,20 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <TutorialDropdown />
+            <BlogDropdown />
           </div>
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
             <Notifications />
+            <Link to="/cart">
+              <Button variant="ghost" size="icon" className="relative hover:bg-neon-cyan/10 transition-all">
+                <ShoppingCart className="w-5 h-5 text-neon-blue" />
+                <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-neon-cyan text-xs border-none">
+                  0
+                </Badge>
+              </Button>
+            </Link>
             <Link to="/login">
               <Button className="gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80 text-primary-foreground glow-neon-blue shadow-lg transition-all">
                 <User className="w-4 h-4" />
