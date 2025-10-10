@@ -14,10 +14,8 @@ const Hero = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-            <span className="text-glow-blue bg-gradient-to-r from-neon-blue via-neon-cyan to-pastel-purple bg-[length:200%_auto] animate-gradient-x">
-              قدرت، سرعت، امنیت
-            </span>
+          <h1 className="text-6xl md:text-8xl font-bold leading-tight text-neon-cyan">
+            قدرت، سرعت، امنیت
           </h1>
 
           {/* Description */}
