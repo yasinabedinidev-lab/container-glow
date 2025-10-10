@@ -44,6 +44,42 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --neon-blue: 199 89% 48%;
+    --neon-cyan: 189 94% 43%;
+    --pastel-pink: 340 82% 52%;
+    --pastel-purple: 280 65% 60%;
+    --pastel-green: 165 82% 51%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+  }
 }
 
 @layer utilities {
@@ -96,12 +132,12 @@ All colors MUST be HSL.
   }
 
   ::selection {
-    background-color: hsl(var(--neon-cyan) / 0.3);
+    background-color: hsl(var(--neon-blue) / 0.3);
     color: hsl(var(--foreground));
   }
 
   ::-moz-selection {
-    background-color: hsl(var(--neon-cyan) / 0.3);
+    background-color: hsl(var(--neon-blue) / 0.3);
     color: hsl(var(--foreground));
   }
 }

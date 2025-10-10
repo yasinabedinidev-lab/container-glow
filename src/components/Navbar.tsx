@@ -6,6 +6,7 @@ import Notifications from "./Notifications";
 import BlogDropdown from "./BlogDropdown";
 import { ShoppingCart } from "lucide-react";
 import { Badge } from "./ui/badge";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const location = useLocation();
@@ -60,7 +61,8 @@ const Navbar = () => {
           </div>
 
           {/* Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Notifications />
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative hover:bg-neon-cyan/10 transition-all">
