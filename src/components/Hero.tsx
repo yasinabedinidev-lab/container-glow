@@ -14,11 +14,9 @@ const Hero = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-glow-blue leading-tight">
-            قدرت Container ها را
-            <br />
+          <h1 className="text-6xl md:text-8xl font-bold leading-tight">
             <span className="gradient-neon bg-clip-text text-transparent">
-              در اختیار بگیرید
+              قدرت، سرعت، امنیت
             </span>
           </h1>
 

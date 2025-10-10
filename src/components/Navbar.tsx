@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Container, User, Menu, X } from "lucide-react";
+import { Container, User, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import Notifications from "./Notifications";
+import TutorialDropdown from "./TutorialDropdown";
 
 const Navbar = () => {
   const location = useLocation();
@@ -16,42 +18,48 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border-b border-neon-blue/20 shadow-lg shadow-neon-blue/5">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <Container className="w-8 h-8 text-neon-blue group-hover:animate-glow-pulse transition-all" />
-              <div className="absolute inset-0 glow-neon-blue opacity-0 group-hover:opacity-100 transition-opacity" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-neon-blue/20 to-neon-cyan/20 group-hover:from-neon-blue/30 group-hover:to-neon-cyan/30 transition-all border border-neon-blue/30">
+              <Container className="w-7 h-7 text-neon-blue group-hover:animate-glow-pulse transition-all" />
+              <div className="absolute inset-0 glow-neon-blue opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+              <Sparkles className="w-3 h-3 text-neon-cyan absolute -top-1 -right-1 animate-glow-pulse" />
             </div>
-            <span className="text-xl font-bold text-glow-blue">ContainerShop</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold gradient-neon bg-clip-text text-transparent">ContainerShop</span>
+              <span className="text-[10px] text-neon-cyan/70">Platform as a Service</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative px-3 py-2 text-sm font-medium transition-all ${
+                className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg group ${
                   isActive(item.path)
-                    ? "text-neon-blue"
-                    : "text-foreground/70 hover:text-foreground"
+                    ? "text-neon-blue bg-neon-blue/10"
+                    : "text-foreground/70 hover:text-neon-cyan hover:bg-neon-cyan/5"
                 }`}
               >
                 {item.label}
                 {isActive(item.path) && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-neon-blue glow-neon-blue" />
+                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-neon-blue rounded-full glow-neon-blue" />
                 )}
               </Link>
             ))}
+            <TutorialDropdown />
           </div>
 
-          {/* Auth Button */}
-          <div className="hidden md:block">
+          {/* Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            <Notifications />
             <Link to="/login">
-              <Button variant="outline" className="gap-2 glow-neon-blue border-neon-blue/50 hover:bg-neon-blue/10">
+              <Button className="gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80 text-primary-foreground glow-neon-blue shadow-lg transition-all">
                 <User className="w-4 h-4" />
                 ورود / ثبت‌نام
               </Button>
