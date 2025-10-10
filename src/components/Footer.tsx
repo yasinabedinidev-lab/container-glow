@@ -34,7 +34,7 @@ const Footer = () => {
                 <Container className="w-6 h-6 text-neon-blue" />
               </div>
               <div>
-                <span className="text-lg font-bold gradient-neon bg-clip-text text-transparent">
+                <span className="text-lg font-bold text-neon-blue">
                   ContainerShop
                 </span>
                 <p className="text-[10px] text-neon-cyan/70">Platform as a Service</p>

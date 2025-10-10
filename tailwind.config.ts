@@ -98,6 +98,10 @@ export default {
           "0%": { transform: "translateX(-100%)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
+        "gradient-x": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,6 +110,7 @@ export default {
         "float-slow": "float-slow 8s ease-in-out infinite",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         "slide-in": "slide-in 0.5s ease-out",
+        "gradient-x": "gradient-x 3s ease infinite",
       },
     },
   },

@@ -29,10 +29,10 @@ const PaaSInfo = () => {
             <div className="relative z-10">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Right Side - Info */}
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold gradient-neon bg-clip-text text-transparent">
-                    چرا PaaS؟
-                  </h3>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-neon-cyan">
+                  چرا PaaS؟
+                </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     پلتفرم به عنوان سرویس (PaaS) به شما اجازه می‌دهد تا بدون دغدغه مدیریت سرور، 
                     دیتابیس، و زیرساخت، مستقیماً روی توسعه محصول خود تمرکز کنید. 

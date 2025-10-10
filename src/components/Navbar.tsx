@@ -34,7 +34,7 @@ const Navbar = () => {
               <Sparkles className="w-3 h-3 text-neon-cyan absolute -top-1 -right-1 animate-glow-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold gradient-neon bg-clip-text text-transparent">ContainerShop</span>
+              <span className="text-xl font-bold text-neon-blue">ContainerShop</span>
               <span className="text-[10px] text-neon-cyan/70">Platform as a Service</span>
             </div>
           </Link>
