@@ -64,11 +64,11 @@ const ServicesPreview = () => {
               <Link
                 key={service.id}
                 to={`/services/${service.id}`}
-                className="group"
+                className="group flex"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:glow-neon-blue">
-                  <CardHeader>
+                <Card className="flex flex-col w-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:glow-neon-blue">
+                  <CardHeader className="flex-shrink-0">
                     <div className={`w-12 h-12 rounded-lg bg-${service.color}/10 flex items-center justify-center mb-4 group-hover:glow-neon-blue transition-all`}>
                       <Icon className={`w-6 h-6 text-${service.color}`} />
                     </div>
@@ -79,8 +79,8 @@ const ServicesPreview = () => {
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
+                  <CardContent className="space-y-4 flex-grow flex flex-col">
+                    <div className="space-y-2 flex-grow">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm text-foreground/70">
                           <div className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
@@ -106,7 +106,7 @@ const ServicesPreview = () => {
         {/* CTA */}
         <div className="text-center">
           <Link to="/services">
-            <Button size="lg" variant="outline" className="gap-2 border-neon-blue/50 hover:bg-neon-blue/10 glow-neon-blue">
+            <Button size="lg" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
               مشاهده تمام سرویس‌ها
               <ArrowLeft className="w-5 h-5" />
             </Button>
