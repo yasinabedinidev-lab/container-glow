@@ -15,6 +15,8 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "صفحه اصلی" },
     { path: "/services", label: "سرویس‌ها" },
+    { path: "/pricing", label: "قیمت‌گذاری" },
+    { path: "/documentation", label: "مستندات" },
     { path: "/support", label: "پشتیبانی" },
     { path: "/profile", label: "پروفایل" },
   ];
