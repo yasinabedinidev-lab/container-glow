@@ -46,39 +46,39 @@ All colors MUST be HSL.
   }
 
   .light {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --background: 210 40% 98%;
+    --foreground: 222 84% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 84% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 222 84% 12%;
 
-    --primary: 199 89% 48%;
+    --primary: 199 89% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 199 70% 92%;
+    --secondary-foreground: 199 89% 25%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 40% 93%;
+    --muted-foreground: 215 20% 40%;
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 189 94% 90%;
+    --accent-foreground: 189 94% 25%;
 
-    --neon-blue: 199 89% 48%;
-    --neon-cyan: 189 94% 43%;
-    --pastel-pink: 340 82% 52%;
-    --pastel-purple: 280 65% 60%;
-    --pastel-green: 165 82% 51%;
+    --neon-blue: 199 89% 45%;
+    --neon-cyan: 189 94% 40%;
+    --pastel-pink: 340 75% 60%;
+    --pastel-purple: 280 60% 55%;
+    --pastel-green: 165 75% 55%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 199 89% 48%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 199 89% 45%;
   }
 }
 
@@ -88,10 +88,21 @@ All colors MUST be HSL.
                 0 0 40px hsl(var(--neon-blue) / 0.3),
                 0 0 60px hsl(var(--neon-blue) / 0.2);
   }
+
+  .light .glow-neon-blue {
+    box-shadow: 0 0 15px hsl(var(--neon-blue) / 0.4),
+                0 0 30px hsl(var(--neon-blue) / 0.25),
+                0 0 45px hsl(var(--neon-blue) / 0.15);
+  }
   
   .glow-neon-cyan {
     box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5),
                 0 0 40px hsl(var(--neon-cyan) / 0.3);
+  }
+
+  .light .glow-neon-cyan {
+    box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.4),
+                0 0 30px hsl(var(--neon-cyan) / 0.25);
   }
 
   .text-glow-blue {
@@ -100,9 +111,20 @@ All colors MUST be HSL.
                  0 0 30px hsl(var(--neon-blue) / 0.3);
   }
 
+  .light .text-glow-blue {
+    text-shadow: 0 0 8px hsl(var(--neon-blue) / 0.5),
+                 0 0 15px hsl(var(--neon-blue) / 0.3),
+                 0 0 25px hsl(var(--neon-blue) / 0.2);
+  }
+
   .text-glow-cyan {
     text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
                  0 0 20px hsl(var(--neon-cyan) / 0.5);
+  }
+
+  .light .text-glow-cyan {
+    text-shadow: 0 0 8px hsl(var(--neon-cyan) / 0.5),
+                 0 0 15px hsl(var(--neon-cyan) / 0.3);
   }
 
   .gradient-neon {
