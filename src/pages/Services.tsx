@@ -107,11 +107,11 @@ const Services = () => {
                 <Link
                   key={service.id}
                   to={`/services/${service.id}`}
-                  className="group"
+                  className="group flex"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:glow-neon-blue">
-                    <CardHeader>
+                  <Card className="flex flex-col w-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:glow-neon-blue">
+                    <CardHeader className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-lg bg-neon-blue/10 flex items-center justify-center mb-4 group-hover:glow-neon-blue transition-all">
                         <Icon className="w-6 h-6 text-neon-blue" />
                       </div>
@@ -122,8 +122,8 @@ const Services = () => {
                         {service.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="space-y-2">
+                    <CardContent className="space-y-4 flex-grow flex flex-col">
+                      <div className="space-y-2 flex-grow">
                         {service.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center gap-2 text-sm text-foreground/70">
                             <div className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
@@ -139,7 +139,7 @@ const Services = () => {
                           <span className="text-sm text-foreground/60">تومان/ماه</span>
                         </div>
                       </div>
-                      <Button className="w-full gap-2 bg-neon-blue/10 hover:bg-neon-blue hover:text-primary-foreground border border-neon-blue/50">
+                      <Button className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                         مشاهده جزئیات
                         <ArrowLeft className="w-4 h-4" />
                       </Button>
