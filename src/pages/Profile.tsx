@@ -41,9 +41,16 @@ const Profile = () => {
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-glow-blue mb-2">
-              پروفایل کاربری
-            </h1>
+            <div className="inline-block mb-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-neon opacity-20 blur-xl rounded-3xl"></div>
+                <div className="relative bg-card/80 backdrop-blur-sm border border-neon-blue/30 rounded-3xl px-8 py-6">
+                  <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-neon-blue via-neon-cyan to-pastel-purple bg-clip-text text-transparent">
+                    پروفایل کاربری
+                  </h1>
+                </div>
+              </div>
+            </div>
             <p className="text-foreground/60">مدیریت سرویس‌ها و اطلاعات حساب کاربری</p>
           </div>
 

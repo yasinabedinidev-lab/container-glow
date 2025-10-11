@@ -90,10 +90,17 @@ const Services = () => {
       <div className="relative pt-24 pb-20 px-4">
         <div className="container mx-auto">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-glow-blue">
-              سرویس‌های Docker
-            </h1>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-neon opacity-20 blur-xl rounded-3xl"></div>
+                <div className="relative bg-card/80 backdrop-blur-sm border border-neon-blue/30 rounded-3xl px-8 py-6">
+                  <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-neon-blue via-neon-cyan to-pastel-purple bg-clip-text text-transparent">
+                    سرویس‌های Docker
+                  </h1>
+                </div>
+              </div>
+            </div>
             <p className="text-xl text-foreground/70">
               راهکارهای کامل برای هر نیازی - از استارتاپ تا سازمان
             </p>
