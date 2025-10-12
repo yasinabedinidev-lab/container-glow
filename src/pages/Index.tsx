@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ServicesPreview from "@/components/ServicesPreview";
 import FloatingContainers from "@/components/FloatingContainers";
 import PaaSInfo from "@/components/PaaSInfo";
+import N8NPromo from "@/components/N8NPromo";
 import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,7 @@ const Index = () => {
       <Hero />
       <PaaSInfo />
       <ServicesPreview />
+      <N8NPromo />
       <SupportSection />
       <Footer />
     </div>
