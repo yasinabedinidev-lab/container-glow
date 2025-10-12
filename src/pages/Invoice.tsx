@@ -2,13 +2,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { FileText, Download, CreditCard } from "lucide-react";
+import { CheckCircle, Download, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Invoice = () => {
+  const navigate = useNavigate();
+  
   const invoiceData = {
     number: "INV-2024-001234",
     date: "۱۴۰۳/۰۷/۲۰",
-    dueDate: "۱۴۰۳/۰۷/۲۷",
+    paymentDate: "۱۴۰۳/۰۷/۲۰",
+    paymentMethod: "پرداخت آنلاین",
     items: [
       { name: "PostgreSQL - پلن استاندارد", quantity: 1, price: 250000 },
       { name: "Redis - پلن حرفه‌ای", quantity: 2, price: 180000 },
@@ -28,11 +32,12 @@ const Invoice = () => {
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-blue/10 border border-neon-blue/30 glow-neon-blue mb-6">
-                <FileText className="w-4 h-4 text-neon-blue" />
-                <span className="text-sm text-neon-blue">فاکتور</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-6">
+                <CheckCircle className="w-4 h-4 text-green-500" />
+                <span className="text-sm text-green-500">پرداخت موفق</span>
               </div>
-              <h1 className="text-4xl font-bold text-glow-blue mb-2">پیش‌فاکتور</h1>
+              <h1 className="text-4xl font-bold text-glow-blue mb-2">رسید خرید</h1>
+              <p className="text-foreground/60">پرداخت شما با موفقیت انجام شد</p>
             </div>
 
             {/* Invoice Card */}
@@ -51,15 +56,19 @@ const Invoice = () => {
                 </div>
               </div>
 
-              {/* Dates */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Payment Info */}
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div>
-                  <div className="text-sm text-foreground/60 mb-1">تاریخ صدور</div>
-                  <div className="font-semibold">{invoiceData.date}</div>
+                  <div className="text-sm text-foreground/60 mb-1">تاریخ پرداخت</div>
+                  <div className="font-semibold">{invoiceData.paymentDate}</div>
                 </div>
                 <div>
-                  <div className="text-sm text-foreground/60 mb-1">سررسید پرداخت</div>
-                  <div className="font-semibold">{invoiceData.dueDate}</div>
+                  <div className="text-sm text-foreground/60 mb-1">روش پرداخت</div>
+                  <div className="font-semibold">{invoiceData.paymentMethod}</div>
+                </div>
+                <div>
+                  <div className="text-sm text-foreground/60 mb-1">وضعیت</div>
+                  <div className="font-semibold text-green-500">پرداخت شده</div>
                 </div>
               </div>
 
@@ -111,22 +120,25 @@ const Invoice = () => {
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="flex-1 gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80 glow-neon-blue">
-                <CreditCard className="w-5 h-5" />
-                پرداخت آنلاین
+              <Button 
+                onClick={() => navigate('/profile')}
+                className="flex-1 gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80"
+              >
+                <Home className="w-5 h-5" />
+                بازگشت به پنل کاربری
               </Button>
               <Button variant="outline" className="gap-2 border-neon-blue/50 hover:bg-neon-blue/10">
                 <Download className="w-5 h-5" />
-                دانلود PDF
+                دانلود رسید
               </Button>
             </div>
 
-            {/* Notes */}
-            <Card className="p-6 mt-6 bg-neon-blue/5 border-neon-blue/20">
-              <h3 className="font-bold text-foreground mb-2">یادداشت</h3>
+            {/* Success Message */}
+            <Card className="p-6 mt-6 bg-green-500/5 border-green-500/20">
+              <h3 className="font-bold text-foreground mb-2">✓ خرید موفق</h3>
               <p className="text-sm text-foreground/70 leading-relaxed">
-                پس از پرداخت، سرویس‌های شما در کمتر از ۵ دقیقه فعال می‌شوند. 
-                در صورت هرگونه سوال با پشتیبانی ۲۴/۷ ما تماس بگیرید.
+                سرویس‌های شما با موفقیت فعال شدند و در پنل کاربری قابل مشاهده هستند.
+                برای مدیریت سرویس‌ها به پنل کاربری بروید.
               </p>
             </Card>
           </div>
