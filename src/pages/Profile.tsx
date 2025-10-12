@@ -5,6 +5,7 @@ import { User, Container, HardDrive, Activity, Calendar, Settings, LogOut } from
 import Navbar from "@/components/Navbar";
 import FloatingContainers from "@/components/FloatingContainers";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const userServices = [
   {
@@ -28,6 +29,8 @@ const userServices = [
 ];
 
 const Profile = () => {
+  const navigate = useNavigate();
+  
   const calculatePercentage = (used: number, total: number) => {
     return (used / total) * 100;
   };
@@ -143,7 +146,12 @@ const Profile = () => {
                             </span>
                           </CardDescription>
                         </div>
-                        <Button size="sm" variant="outline" className="border-neon-blue/50">
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          className="border-primary/50"
+                          onClick={() => navigate(`/services/manage/${service.id}`)}
+                        >
                           مدیریت
                         </Button>
                       </div>

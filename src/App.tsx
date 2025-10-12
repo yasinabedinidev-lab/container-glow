@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import ServiceManagement from "./pages/ServiceManagement";
 import Support from "./pages/Support";
 import Cart from "./pages/Cart";
 import Invoice from "./pages/Invoice";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/services/manage/:id" element={<ServiceManagement />} />
           <Route path="/support" element={<Support />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/invoice" element={<Invoice />} />
