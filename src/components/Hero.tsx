@@ -5,17 +5,36 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi,
 } from "./ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useState, useEffect } from "react";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const Hero = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
-  );
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const slides = [heroSlide1, heroSlide2, heroSlide3];
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+
+    // Auto-scroll every 4 seconds
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [api]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -24,7 +43,7 @@ const Hero = () => {
           {/* Right side - Content */}
           <div className="space-y-6 order-2 lg:order-1">
             {/* Badge - Centered */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30">
                 <Zap className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs font-medium text-primary">DockerCity - شهر کانتینرهای شما</span>
@@ -32,17 +51,17 @@ const Hero = () => {
             </div>
 
             {/* Heading - Right aligned */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center lg:text-right">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-right">
               <span className="text-primary">Docker</span> را ساده کنید
             </h1>
 
             {/* Description - Right aligned */}
-            <p className="text-base md:text-lg text-foreground/70 text-center lg:text-right">
+            <p className="text-base md:text-lg text-foreground/70 text-right">
               سرویس‌های Docker حرفه‌ای با استقرار سریع، امنیت بالا و مدیریت آسان
             </p>
 
-            {/* Features - Right aligned */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-end text-sm">
+            {/* Features - Centered */}
+            <div className="flex flex-wrap gap-4 justify-center text-sm">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span className="text-foreground/80">استقرار در ۵ دقیقه</span>
@@ -93,17 +112,15 @@ const Hero = () => {
           {/* Left side - Carousel */}
           <div className="order-1 lg:order-2">
             <Carousel
+              setApi={setApi}
               opts={{
                 align: "center",
                 loop: true,
               }}
-              plugins={[plugin.current]}
               className="w-full max-w-lg mx-auto"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
             >
               <CarouselContent>
-                {[heroSlide1, heroSlide2, heroSlide3].map((slide, index) => (
+                {slides.map((slide, index) => (
                   <CarouselItem key={index}>
                     <div className="rounded-3xl overflow-hidden border-2 border-primary/30 bg-card shadow-2xl">
                       <img
@@ -119,9 +136,16 @@ const Hero = () => {
             
             {/* Dots indicator */}
             <div className="flex justify-center gap-2 mt-6">
-              <div className="w-2 h-2 rounded-full bg-primary"></div>
-              <div className="w-2 h-2 rounded-full bg-primary/30"></div>
-              <div className="w-2 h-2 rounded-full bg-primary/30"></div>
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => api?.scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    current === index ? "bg-primary w-6" : "bg-primary/30"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
