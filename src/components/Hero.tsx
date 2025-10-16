@@ -1,40 +1,22 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Container, CheckCircle, Zap, Shield, Rocket } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "./ui/carousel";
 import { useState, useEffect } from "react";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const Hero = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
   const slides = [heroSlide1, heroSlide2, heroSlide3];
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-
-    // Auto-scroll every 4 seconds
     const interval = setInterval(() => {
-      api.scrollNext();
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [api]);
+  }, [slides.length]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -109,43 +91,31 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Left side - Carousel */}
+          {/* Left side - Image Slider */}
           <div className="order-1 lg:order-2">
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-              className="w-full max-w-lg mx-auto"
-            >
-              <CarouselContent>
-                {slides.map((slide, index) => (
-                  <CarouselItem key={index}>
-                    <div className="rounded-3xl overflow-hidden border-2 border-primary/30 bg-card shadow-2xl">
-                      <img
-                        src={slide}
-                        alt={`Docker service visualization ${index + 1}`}
-                        className="w-full h-full object-cover aspect-square"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-            
-            {/* Dots indicator */}
-            <div className="flex justify-center gap-2 mt-6">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    current === index ? "bg-primary w-6" : "bg-primary/30"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
+            <div className="relative w-full max-w-lg mx-auto">
+              <div className="rounded-3xl overflow-hidden border-2 border-primary/30 bg-card shadow-2xl aspect-square">
+                <img
+                  src={slides[currentSlide]}
+                  alt={`Docker service visualization ${currentSlide + 1}`}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                  key={currentSlide}
                 />
-              ))}
+              </div>
+              
+              {/* Dots indicator */}
+              <div className="flex justify-center gap-2 mt-6">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      currentSlide === index ? "bg-primary w-6" : "bg-primary/30 w-2"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
