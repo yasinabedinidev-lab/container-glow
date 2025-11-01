@@ -44,15 +44,17 @@ const services = [
 
 const ServicesPreview = () => {
   return (
-    <section className="relative py-20 px-4">
+    <section className="relative py-24 px-4">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-glow-blue">
-            سرویس‌های ما
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-4xl md:text-6xl font-bold">
+            <span className="bg-gradient-to-l from-primary via-neon.cyan to-accent bg-clip-text text-transparent">
+              انتخاب کن، استفاده کن
+            </span>
           </h2>
-          <p className="text-lg text-foreground/70">
-            از کانتینرهای ساده تا راهکارهای پیچیده، همه چیز آماده است
+          <p className="text-xl text-muted-foreground">
+            هر چیزی که نیاز داری، آماده و در دسترس
           </p>
         </div>
 
