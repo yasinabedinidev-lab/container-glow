@@ -5,7 +5,7 @@ import { Card } from "./ui/card";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-32 px-4 md:px-8">
       {/* Background Shapes - Behind Everything */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <Container 
@@ -34,17 +34,17 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <Card className="max-w-5xl mx-auto p-8 md:p-12 lg:p-16 bg-card/80 backdrop-blur-xl border-primary/20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <Card className="max-w-4xl mx-auto p-6 md:p-10 lg:p-12 bg-card/80 backdrop-blur-xl border-primary/20">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Right Side - Content */}
-            <div className="space-y-8 text-center lg:text-right order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-sm text-primary">بدون نیاز به دانش فنی</span>
+            <div className="space-y-6 text-center lg:text-right order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30">
+                <Zap className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs text-primary">بدون نیاز به دانش فنی</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 هر سرویسی که
                 <br />
                 <span className="bg-gradient-to-l from-primary via-neon.cyan to-accent bg-clip-text text-transparent">
@@ -54,59 +54,59 @@ const Hero = () => {
                 در چند کلیک
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
                 فقط کافیه بگی چی می‌خوای - ما بقیه‌ش رو انجام میدیم.
                 بدون کد، بدون پیچیدگی، بدون سردرد.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <Link to="/services">
-                  <Button size="lg" className="gap-2 glow-neon-blue text-lg px-8">
+                  <Button size="lg" className="gap-2 glow-neon-blue px-6">
                     شروع کن - رایگانه
-                    <ArrowLeft className="w-5 h-5" />
+                    <ArrowLeft className="w-4 h-4" />
                   </Button>
                 </Link>
                 <Link to="/login">
-                  <Button size="lg" variant="outline" className="gap-2 text-lg px-8">
+                  <Button size="lg" variant="outline" className="gap-2 px-6">
                     مشاهده سرویس‌ها
                   </Button>
                 </Link>
               </div>
 
               {/* Simple Stats */}
-              <div className="flex gap-8 justify-center lg:justify-start pt-4">
+              <div className="flex gap-6 justify-center lg:justify-start pt-2">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">راه‌اندازی در ۳۰ ثانیه</span>
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span className="text-xs text-muted-foreground">راه‌اندازی در ۳۰ ثانیه</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">+۵۰۰۰ کاربر فعال</span>
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span className="text-xs text-muted-foreground">+۵۰۰۰ کاربر فعال</span>
                 </div>
               </div>
             </div>
 
             {/* Left Side - Simple Visual */}
-            <div className="relative h-80 lg:h-96 order-1 lg:order-2 flex items-center justify-center">
+            <div className="relative h-64 lg:h-80 order-1 lg:order-2 flex items-center justify-center">
               {/* Central Icon with Glow */}
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-3xl animate-glow-pulse" />
-                <div className="relative w-48 h-48 lg:w-64 lg:h-64 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-2 border-primary/40 flex items-center justify-center animate-float">
-                  <Container className="w-20 h-20 lg:w-28 lg:h-28 text-primary" strokeWidth={1.5} />
+                <div className="relative w-40 h-40 lg:w-52 lg:h-52 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-2 border-primary/40 flex items-center justify-center animate-float">
+                  <Container className="w-16 h-16 lg:w-20 lg:h-20 text-primary" strokeWidth={1.5} />
                 </div>
               </div>
 
               {/* Orbiting Small Icons */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-xl bg-gradient-to-br from-neon.cyan/20 to-primary/20 backdrop-blur-sm border border-neon.cyan/30 flex items-center justify-center animate-float-slow">
-                <Zap className="w-7 h-7 text-neon.cyan" strokeWidth={1.5} />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-gradient-to-br from-neon.cyan/20 to-primary/20 backdrop-blur-sm border border-neon.cyan/30 flex items-center justify-center animate-float-slow">
+                <Zap className="w-5 h-5 text-neon.cyan" strokeWidth={1.5} />
               </div>
               
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-pastel.purple/20 backdrop-blur-sm border border-accent/30 flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
-                <Shield className="w-7 h-7 text-accent" strokeWidth={1.5} />
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-pastel.purple/20 backdrop-blur-sm border border-accent/30 flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+                <Shield className="w-5 h-5 text-accent" strokeWidth={1.5} />
               </div>
               
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-xl bg-gradient-to-br from-pastel.green/20 to-neon.cyan/20 backdrop-blur-sm border border-pastel.green/30 flex items-center justify-center animate-float-slow" style={{ animationDelay: '0.5s' }}>
-                <Gauge className="w-7 h-7 text-pastel.green" strokeWidth={1.5} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-gradient-to-br from-pastel.green/20 to-neon.cyan/20 backdrop-blur-sm border border-pastel.green/30 flex items-center justify-center animate-float-slow" style={{ animationDelay: '0.5s' }}>
+                <Gauge className="w-5 h-5 text-pastel.green" strokeWidth={1.5} />
               </div>
             </div>
 
