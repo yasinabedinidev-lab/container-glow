@@ -1,6 +1,7 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Workflow, Zap, ArrowLeft, TrendingUp, Package } from "lucide-react";
+import n8nLogo from "@/assets/n8n-logo.png";
 
 const N8NPromo = () => {
   return (
@@ -24,8 +25,8 @@ const N8NPromo = () => {
               {/* Central Icon */}
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-3xl blur-2xl opacity-30 animate-glow-pulse" />
-                <div className="relative w-48 h-48 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-2 border-primary/40 flex items-center justify-center rotate-6 animate-float">
-                  <Workflow className="w-20 h-20 text-primary" strokeWidth={1.5} />
+                <div className="relative w-48 h-48 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-2 border-primary/40 flex items-center justify-center rotate-6 animate-float p-6">
+                  <img src={n8nLogo} alt="n8n" className="w-full h-full object-contain" />
                 </div>
               </div>
 
@@ -47,7 +48,7 @@ const N8NPromo = () => {
             <div className="space-y-6 text-center md:text-right order-1 md:order-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
                 <Workflow className="w-4 h-4 text-primary" />
-                <span className="text-sm text-primary font-medium">مارکت‌پلیس اتوماسیون</span>
+                <span className="text-sm text-primary font-medium">n8n Marketplace</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -57,8 +58,8 @@ const N8NPromo = () => {
               </h2>
 
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                با مارکت‌پلیس N8N، Workflowهای آماده رو بخر یا Workflowهای خودت رو بفروش.
-                هزاران اتوماسیون آماده منتظر تو هستند.
+                با n8n marketplace، workflow های آماده رو بخر یا workflow های خودت رو بفروش.
+                هزاران اتوماسیون آماده منتظرتن.
               </p>
 
               {/* Feature Pills */}
@@ -79,7 +80,7 @@ const N8NPromo = () => {
 
               <div className="pt-4">
                 <Button size="lg" className="gap-2 glow-neon-blue text-lg px-8">
-                  کاوش در مارکت‌پلیس
+                  مشاهده marketplace
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
               </div>
