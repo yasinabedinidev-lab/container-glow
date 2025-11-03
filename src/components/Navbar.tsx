@@ -15,8 +15,7 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "صفحه اصلی" },
     { path: "/services", label: "سرویس‌ها" },
-    { path: "/pricing", label: "قیمت‌گذاری" },
-    { path: "/documentation", label: "مستندات" },
+    { path: "https://n8n.containershop.ir", label: "n8n", external: true },
     { path: "/support", label: "پشتیبانی" },
     { path: "/profile", label: "پروفایل" },
   ];
@@ -43,22 +42,34 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg group ${
-                  isActive(item.path)
-                    ? "text-neon-blue bg-neon-blue/10"
-                    : "text-foreground/70 hover:text-neon-cyan hover:bg-neon-cyan/5"
-                }`}
-              >
-                {item.label}
-                {isActive(item.path) && (
-                  <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-neon-blue rounded-full glow-neon-blue" />
-                )}
-              </Link>
-            ))}
+            {navItems.map((item) => 
+              item.external ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative px-4 py-2 text-sm font-medium transition-all rounded-lg text-foreground/70 hover:text-neon-cyan hover:bg-neon-cyan/5 group"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`relative px-4 py-2 text-sm font-medium transition-all rounded-lg group ${
+                    isActive(item.path)
+                      ? "text-neon-blue bg-neon-blue/10"
+                      : "text-foreground/70 hover:text-neon-cyan hover:bg-neon-cyan/5"
+                  }`}
+                >
+                  {item.label}
+                  {isActive(item.path) && (
+                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-neon-blue rounded-full glow-neon-blue" />
+                  )}
+                </Link>
+              )
+            )}
             <BlogDropdown />
           </div>
 
@@ -94,20 +105,33 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-2 animate-slide-in">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                  isActive(item.path)
-                    ? "text-neon-blue bg-neon-blue/10"
-                    : "text-foreground/70 hover:bg-secondary"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => 
+              item.external ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3 py-2 rounded-lg text-sm font-medium transition-all text-foreground/70 hover:bg-secondary"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                    isActive(item.path)
+                      ? "text-neon-blue bg-neon-blue/10"
+                      : "text-foreground/70 hover:bg-secondary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" className="w-full gap-2 border-neon-blue/50">
                 <User className="w-4 h-4" />

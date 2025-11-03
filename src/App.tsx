@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import ServiceManagement from "./pages/ServiceManagement";
 import Support from "./pages/Support";
 import TicketDetail from "./pages/TicketDetail";
+import TicketsList from "./pages/TicketsList";
 import Cart from "./pages/Cart";
 import Invoice from "./pages/Invoice";
 import Blog from "./pages/Blog";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/services/manage/:id" element={<ServiceManagement />} />
           <Route path="/support" element={<Support />} />
           <Route path="/ticket/:id" element={<TicketDetail />} />
+          <Route path="/tickets" element={<TicketsList />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/blog" element={<Blog />} />

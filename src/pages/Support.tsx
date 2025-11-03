@@ -140,10 +140,20 @@ const Support = () => {
 
               {/* Recent Tickets */}
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-                  <Headphones className="w-6 h-6 text-neon-cyan" />
-                  تیکت‌های اخیر شما
-                </h2>
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                    <Headphones className="w-6 h-6 text-neon-cyan" />
+                    تیکت‌های اخیر شما
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigate("/tickets")}
+                    className="text-neon-cyan hover:text-neon-blue"
+                  >
+                    مشاهده همه
+                  </Button>
+                </div>
                 <div className="space-y-4">
                   {tickets.map((ticket) => (
                     <Card 

@@ -2,7 +2,7 @@ import postgresqlLogo from '@/assets/logos/postgresql.svg';
 import mysqlLogo from '@/assets/logos/mysql.svg';
 import mongodbLogo from '@/assets/logos/mongodb.svg';
 import redisLogo from '@/assets/logos/redis.svg';
-import n8nLogo from '@/assets/logos/n8n.png';
+import n8nLogo from '@/assets/logos/n8n-icon.png';
 import kafkaLogo from '@/assets/logos/kafka.svg';
 import elasticsearchLogo from '@/assets/logos/elasticsearch.svg';
 import vaultLogo from '@/assets/logos/vault.svg';

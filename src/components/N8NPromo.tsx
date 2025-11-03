@@ -1,7 +1,7 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Workflow, Zap, ArrowLeft, TrendingUp, Package } from "lucide-react";
-import n8nLogo from "@/assets/n8n-logo.png";
+import n8nLogo from "@/assets/logos/n8n-icon.png";
 
 const N8NPromo = () => {
   return (
