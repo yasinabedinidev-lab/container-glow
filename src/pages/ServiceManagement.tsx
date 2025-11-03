@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Switch } from "@/components/ui/switch";
 import { 
   ArrowRight, 
   Globe, 
@@ -18,34 +19,54 @@ import {
   Calendar,
   TrendingUp,
   TrendingDown,
-  Clock
+  Clock,
+  Power,
+  Link as LinkIcon,
+  ExternalLink
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import FloatingContainers from "@/components/FloatingContainers";
 import Footer from "@/components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import dockerShipIcon from "@/assets/docker-ship-icon.png";
 
 const ServiceManagement = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { toast } = useToast();
   const [isResetting, setIsResetting] = useState(false);
+  const [containerRunning, setContainerRunning] = useState(true);
+  const [isTogglingContainer, setIsTogglingContainer] = useState(false);
 
   // Mock service data - replace with real data from backend
   const service = {
     id: id,
-    name: "Web Application Container",
-    domain: "myapp.example.com",
+    name: "PostgreSQL Database Container",
+    domain: "postgres-db.containershop.ir",
     username: "admin_user",
     password: "••••••••••••",
-    status: "فعال",
+    status: containerRunning ? "فعال" : "خاموش",
     createdDate: "1402/08/15",
     expiryDate: "1403/12/15",
     ram: { used: 1.2, total: 2 },
-    cpu: { used: 45, total: 100 },
+    cpu: { used: containerRunning ? 45 : 0, total: 100 },
     storage: { used: 28, total: 50 },
     bandwidth: { used: 450, total: 1000 },
+  };
+
+  const handleToggleContainer = async () => {
+    setIsTogglingContainer(true);
+    // Simulate API call
+    setTimeout(() => {
+      setContainerRunning(!containerRunning);
+      setIsTogglingContainer(false);
+      toast({
+        title: containerRunning ? "کانتینر خاموش شد" : "کانتینر روشن شد",
+        description: containerRunning 
+          ? "سرویس شما متوقف شد و دیگر قابل دسترسی نیست"
+          : "سرویس شما راه‌اندازی شد و آماده استفاده است",
+      });
+    }, 2000);
   };
 
   const handleResetPassword = async () => {
@@ -74,7 +95,6 @@ const ServiceManagement = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <FloatingContainers />
       <Navbar />
       
       <div className="relative pt-24 pb-20 px-4">
@@ -112,6 +132,37 @@ const ServiceManagement = () => {
 
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-6">
+              {/* Container Control */}
+              <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <img src={dockerShipIcon} alt="Container" className="w-12 h-12" />
+                      <div>
+                        <h3 className="text-lg font-bold flex items-center gap-2">
+                          <Power className={`w-5 h-5 ${containerRunning ? 'text-pastel-green' : 'text-foreground/40'}`} />
+                          وضعیت کانتینر
+                        </h3>
+                        <p className="text-sm text-foreground/60">
+                          {containerRunning ? "کانتینر در حال اجرا است" : "کانتینر متوقف شده است"}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <Label htmlFor="container-toggle" className="text-sm font-medium">
+                        {containerRunning ? "خاموش کردن" : "روشن کردن"}
+                      </Label>
+                      <Switch 
+                        id="container-toggle"
+                        checked={containerRunning}
+                        onCheckedChange={handleToggleContainer}
+                        disabled={isTogglingContainer}
+                      />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Service Info */}
                 <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
@@ -128,18 +179,27 @@ const ServiceManagement = () => {
                         <Input 
                           value={service.domain} 
                           readOnly 
-                          className="bg-background/50"
+                          className="bg-background/50 font-mono text-sm"
                         />
-                        <Button variant="outline" size="icon">
-                          <RefreshCw className="w-4 h-4" />
+                        <Button 
+                          variant="outline" 
+                          size="icon"
+                          onClick={() => window.open(`https://${service.domain}`, '_blank')}
+                          title="باز کردن در تب جدید"
+                        >
+                          <ExternalLink className="w-4 h-4" />
                         </Button>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-foreground/60">
+                        <LinkIcon className="w-3 h-3" />
+                        <span>https://{service.domain}</span>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <span className="text-sm text-foreground/60">وضعیت</span>
                         <div className="flex items-center gap-2">
-                          <Activity className="w-4 h-4 text-pastel-green" />
+                          <Activity className={`w-4 h-4 ${containerRunning ? 'text-pastel-green' : 'text-foreground/40'}`} />
                           <span className="font-medium">{service.status}</span>
                         </div>
                       </div>

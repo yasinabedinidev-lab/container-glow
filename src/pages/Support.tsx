@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,10 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Headphones, Send, Clock, CheckCircle2 } from "lucide-react";
+import { Headphones, Send, Clock, CheckCircle2, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 
 const Support = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     subject: "",
     priority: "",
@@ -144,7 +146,11 @@ const Support = () => {
                 </h2>
                 <div className="space-y-4">
                   {tickets.map((ticket) => (
-                    <Card key={ticket.id} className="p-6 bg-card/50 border-border/50 hover:border-neon-blue/30 transition-all">
+                    <Card 
+                      key={ticket.id} 
+                      className="p-6 bg-card/50 border-border/50 hover:border-neon-blue/30 transition-all cursor-pointer"
+                      onClick={() => navigate(`/ticket/${ticket.id.replace('#T-', '')}`)}
+                    >
                       <div className="flex justify-between items-start mb-3">
                         <div>
                           <div className="text-sm text-neon-cyan mb-1">{ticket.id}</div>
@@ -158,9 +164,23 @@ const Support = () => {
                           {ticket.status}
                         </div>
                       </div>
-                      <div className="flex justify-between text-sm text-foreground/60">
-                        <span>اولویت: {ticket.priority}</span>
-                        <span>{ticket.date}</span>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-foreground/60">اولویت: {ticket.priority}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-foreground/60">{ticket.date}</span>
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="gap-1 h-7 text-xs"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/ticket/${ticket.id.replace('#T-', '')}`);
+                            }}
+                          >
+                            <MessageSquare className="w-3 h-3" />
+                            مشاهده
+                          </Button>
+                        </div>
                       </div>
                     </Card>
                   ))}

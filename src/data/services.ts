@@ -1,3 +1,13 @@
+import postgresqlLogo from '@/assets/logos/postgresql.svg';
+import mysqlLogo from '@/assets/logos/mysql.svg';
+import mongodbLogo from '@/assets/logos/mongodb.svg';
+import redisLogo from '@/assets/logos/redis.svg';
+import n8nLogo from '@/assets/logos/n8n.png';
+import kafkaLogo from '@/assets/logos/kafka.svg';
+import elasticsearchLogo from '@/assets/logos/elasticsearch.svg';
+import vaultLogo from '@/assets/logos/vault.svg';
+import prometheusLogo from '@/assets/logos/prometheus.svg';
+
 export interface Service {
   id: string;
   title: string;
@@ -36,7 +46,7 @@ export const services: Service[] = [
     description: "دیتابیس رابطه‌ای قدرتمند و open-source",
     longDescription: "PostgreSQL یکی از پیشرفته‌ترین دیتابیس‌های رابطه‌ای است که برای پروژه‌های حرفه‌ای و مقیاس‌پذیر طراحی شده است. با پشتیبانی از ACID، JSON، و قابلیت‌های پیشرفته.",
     category: "database",
-    logo: "/src/assets/logos/postgresql.png",
+    logo: postgresqlLogo,
     price: "150,000",
     specs: {
       ram: "4 GB",
@@ -73,7 +83,7 @@ export const services: Service[] = [
     description: "محبوب‌ترین دیتابیس رابطه‌ای دنیا",
     longDescription: "MySQL یک دیتابیس رابطه‌ای سریع و قابل اعتماد است که در میلیون‌ها وب‌سایت در سراسر جهان استفاده می‌شود. با کارایی بالا و مدیریت آسان.",
     category: "database",
-    logo: "/src/assets/logos/mysql.png",
+    logo: mysqlLogo,
     price: "130,000",
     specs: {
       ram: "4 GB",
@@ -110,7 +120,7 @@ export const services: Service[] = [
     description: "دیتابیس NoSQL قدرتمند و مقیاس‌پذیر",
     longDescription: "MongoDB یک دیتابیس NoSQL document-oriented است که برای ذخیره‌سازی داده‌های غیرساختاریافته و مقیاس‌پذیری افقی طراحی شده است.",
     category: "database",
-    logo: "/src/assets/logos/mongodb.png",
+    logo: mongodbLogo,
     price: "170,000",
     specs: {
       ram: "8 GB",
@@ -147,7 +157,7 @@ export const services: Service[] = [
     description: "سریع‌ترین دیتابیس in-memory برای Cache و Session",
     longDescription: "Redis یک دیتابیس in-memory با کارایی فوق‌العاده است که برای caching، session management، و real-time analytics استفاده می‌شود.",
     category: "cache",
-    logo: "/src/assets/logos/redis.png",
+    logo: redisLogo,
     price: "120,000",
     specs: {
       ram: "8 GB",
@@ -184,7 +194,7 @@ export const services: Service[] = [
     description: "پلتفرم اتوماسیون workflow با رابط گرافیکی",
     longDescription: "n8n یک ابزار اتوماسیون open-source است که به شما امکان می‌دهد workflows پیچیده را بدون نیاز به کدنویسی ایجاد کنید. با بیش از 200 integration.",
     category: "automation",
-    logo: "/src/assets/logos/n8n.png",
+    logo: n8nLogo,
     price: "100,000",
     specs: {
       ram: "2 GB",
@@ -221,7 +231,7 @@ export const services: Service[] = [
     description: "پلتفرم streaming توزیع‌شده برای Big Data",
     longDescription: "Apache Kafka یک پلتفرم event streaming توزیع‌شده است که برای پردازش میلیون‌ها رویداد در ثانیه طراحی شده است. ایده‌آل برای معماری microservices.",
     category: "messaging",
-    logo: "/src/assets/logos/kafka.png",
+    logo: kafkaLogo,
     price: "250,000",
     specs: {
       ram: "16 GB",
@@ -258,7 +268,7 @@ export const services: Service[] = [
     description: "موتور جستجوی قدرتمند برای Big Data",
     longDescription: "Elasticsearch یک موتور جستجو و analytics توزیع‌شده است که برای جستجوی سریع در حجم عظیم داده طراحی شده است. با قابلیت full-text search.",
     category: "search",
-    logo: "/src/assets/logos/elasticsearch.png",
+    logo: elasticsearchLogo,
     price: "200,000",
     specs: {
       ram: "16 GB",
@@ -295,7 +305,7 @@ export const services: Service[] = [
     description: "مدیریت امن Secrets و Encryption",
     longDescription: "HashiCorp Vault ابزاری برای ذخیره‌سازی امن و دسترسی به secrets، passwords، certificates و encryption keys است.",
     category: "security",
-    logo: "/src/assets/logos/vault.png",
+    logo: vaultLogo,
     price: "180,000",
     specs: {
       ram: "4 GB",
@@ -332,7 +342,7 @@ export const services: Service[] = [
     description: "مانیتورینگ و Alerting حرفه‌ای",
     longDescription: "Prometheus یک سیستم مانیتورینگ و alerting open-source است که با Grafana برای ایجاد داشبوردهای زیبا ترکیب شده است.",
     category: "monitoring",
-    logo: "/src/assets/logos/prometheus.png",
+    logo: prometheusLogo,
     price: "140,000",
     specs: {
       ram: "8 GB",
