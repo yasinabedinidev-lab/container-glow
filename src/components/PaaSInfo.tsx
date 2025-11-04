@@ -2,9 +2,8 @@ import { Cloud, Zap, Shield, Gauge } from "lucide-react";
 
 const PaaSInfo = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+    <section className="relative">
+      <div className="max-w-6xl mx-auto">
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
@@ -85,11 +84,6 @@ const PaaSInfo = () => {
 
           </div>
         </div>
-      </div>
-
-      {/* Background Decoration */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-neon.cyan/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
     </section>
   );
 };

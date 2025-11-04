@@ -1,24 +1,11 @@
-import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Workflow, Zap, ArrowLeft, TrendingUp, Package } from "lucide-react";
 import n8nLogo from "@/assets/logos/n8n-icon.png";
 
 const N8NPromo = () => {
   return (
-    <section className="container mx-auto px-4 py-24 relative">
-      {/* Background Decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-glow-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '1s' }} />
-      </div>
-
-      <Card className="relative overflow-hidden border-primary/30 bg-gradient-to-br from-card via-card to-primary/5">
-        {/* Decorative Shapes */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-        
-        <CardContent className="relative z-10 p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
             
             {/* Left Side - Visual */}
             <div className="relative h-80 flex items-center justify-center order-2 md:order-1">
@@ -87,8 +74,6 @@ const N8NPromo = () => {
             </div>
 
           </div>
-        </CardContent>
-      </Card>
     </section>
   );
 };
