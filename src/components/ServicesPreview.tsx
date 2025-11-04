@@ -3,6 +3,14 @@ import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { ArrowLeft } from "lucide-react";
 import { services, categories } from "@/data/services";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const ServicesPreview = () => {
   return (
@@ -20,61 +28,79 @@ const ServicesPreview = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {services.slice(0, 4).map((service, index) => (
-            <Link
-              key={service.id}
-              to={`/services/${service.id}`}
-              className="group flex"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <Card className="flex flex-col w-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neon-blue/20">
-                <CardHeader className="flex-shrink-0">
-                  <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center mb-4 p-2">
-                    <img 
-                      src={service.logo} 
-                      alt={service.title}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between mb-2">
-                    <CardTitle className="text-xl group-hover:text-neon-blue transition-colors">
-                      {service.title}
-                    </CardTitle>
-                    <span className="text-xs px-2 py-1 rounded-full bg-neon-blue/10 text-neon-blue">
-                      {categories[service.category]}
-                    </span>
-                  </div>
-                  <CardDescription className="text-foreground/60 line-clamp-2">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow flex flex-col">
-                  <div className="space-y-2 flex-grow">
-                    <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="flex items-center gap-1 text-foreground/70">
-                        <span className="text-xs">💾</span>
-                        {service.specs.ram}
-                      </div>
-                      <div className="flex items-center gap-1 text-foreground/70">
-                        <span className="text-xs">📦</span>
-                        {service.specs.storage}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pt-4 border-t border-border/50">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-bold text-neon-blue">
-                        {service.price}
-                      </span>
-                      <span className="text-sm text-foreground/60">تومان/ماه</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+        {/* Services Carousel */}
+        <div className="mb-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+              direction: "rtl",
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {services.map((service, index) => (
+                <CarouselItem key={service.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Link
+                    to={`/services/${service.id}`}
+                    className="group flex h-full"
+                  >
+                    <Card className="flex flex-col w-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-neon-blue/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neon-blue/20">
+                      <CardHeader className="flex-shrink-0">
+                        <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center mb-4 p-2">
+                          <img 
+                            src={service.logo} 
+                            alt={service.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <div className="flex items-center justify-between mb-2">
+                          <CardTitle className="text-xl group-hover:text-neon-blue transition-colors">
+                            {service.title}
+                          </CardTitle>
+                          <span className="text-xs px-2 py-1 rounded-full bg-neon-blue/10 text-neon-blue">
+                            {categories[service.category]}
+                          </span>
+                        </div>
+                        <CardDescription className="text-foreground/60 line-clamp-2">
+                          {service.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4 flex-grow flex flex-col">
+                        <div className="space-y-2 flex-grow">
+                          <div className="grid grid-cols-2 gap-2 text-sm">
+                            <div className="flex items-center gap-1 text-foreground/70">
+                              <span className="text-xs">💾</span>
+                              {service.specs.ram}
+                            </div>
+                            <div className="flex items-center gap-1 text-foreground/70">
+                              <span className="text-xs">📦</span>
+                              {service.specs.storage}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="pt-4 border-t border-border/50">
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-2xl font-bold text-neon-blue">
+                              {service.price}
+                            </span>
+                            <span className="text-sm text-foreground/60">تومان/ماه</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
 
         {/* CTA */}

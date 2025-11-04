@@ -34,7 +34,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <Card className="max-w-5xl mx-auto p-6 md:p-10 lg:p-12 bg-card/80 backdrop-blur-xl border-primary/20">
+        <Card className="max-w-7xl mx-auto p-6 md:p-10 lg:p-12 bg-card/80 backdrop-blur-xl border-primary/20">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Right Side - Content */}
