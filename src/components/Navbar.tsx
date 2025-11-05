@@ -23,9 +23,10 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border-b border-neon-blue/20 shadow-2xl shadow-neon-blue/10">
-      <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-cyan/5 pointer-events-none" />
-      <div className="container mx-auto px-4 relative z-10">
+    <nav className="fixed top-4 left-4 right-4 z-50">
+      <div className="bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border border-neon-blue/20 shadow-2xl shadow-neon-blue/10 rounded-2xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-cyan/5 pointer-events-none rounded-2xl" />
+        <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
@@ -140,6 +141,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+        </div>
       </div>
     </nav>
   );
