@@ -8,6 +8,10 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import ProfileLayout from "./pages/ProfileLayout";
+import ProfileDashboard from "./pages/ProfileDashboard";
+import ProfileServices from "./pages/ProfileServices";
+import ProfileSettings from "./pages/ProfileSettings";
 import ServiceManagement from "./pages/ServiceManagement";
 import Support from "./pages/Support";
 import TicketDetail from "./pages/TicketDetail";
@@ -33,7 +37,11 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProfileLayout />}>
+            <Route index element={<ProfileDashboard />} />
+            <Route path="services" element={<ProfileServices />} />
+            <Route path="settings" element={<ProfileSettings />} />
+          </Route>
           <Route path="/services/manage/:id" element={<ServiceManagement />} />
           <Route path="/support" element={<Support />} />
           <Route path="/ticket/:id" element={<TicketDetail />} />
