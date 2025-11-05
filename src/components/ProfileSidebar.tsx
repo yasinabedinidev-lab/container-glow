@@ -24,10 +24,11 @@ export function ProfileSidebar() {
 
   return (
     <Sidebar
-      className={open ? "w-64" : "w-16"}
+      side="right"
+      className={`${open ? "w-64" : "w-16"} border-l border-border/50`}
       collapsible="icon"
     >
-      <SidebarContent className="bg-card/50 backdrop-blur-sm border-r border-border/50">
+      <SidebarContent className="bg-card/80 backdrop-blur-xl border-l border-border/50">
         {/* User Profile Header */}
         {open && (
           <div className="p-4 border-b border-border/50">

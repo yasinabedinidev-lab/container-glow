@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Container, User, Menu, X, Sparkles } from "lucide-react";
+import { Container, User, Menu, X, Sparkles, LogOut, Settings, Headphones } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import Notifications from "./Notifications";
@@ -7,10 +7,20 @@ import BlogDropdown from "./BlogDropdown";
 import { ShoppingCart } from "lucide-react";
 import { Badge } from "./ui/badge";
 import ThemeToggle from "./ThemeToggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // TODO: Replace with actual auth state
+  const userName = "کاربر نمونه"; // TODO: Replace with actual user name
 
   const navItems = [
     { path: "/", label: "صفحه اصلی" },
@@ -86,12 +96,69 @@ const Navbar = () => {
                 </Badge>
               </Button>
             </Link>
-            <Link to="/login">
-              <Button className="gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80 text-primary-foreground glow-neon-blue shadow-lg transition-all">
-                <User className="w-4 h-4" />
-                ورود / ثبت‌نام
-              </Button>
-            </Link>
+            
+            {isLoggedIn ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="gap-2 hover:bg-neon-cyan/10 transition-all">
+                    <div className="w-8 h-8 rounded-full bg-gradient-neon flex items-center justify-center">
+                      <User className="w-4 h-4 text-primary-foreground" />
+                    </div>
+                    <span className="font-medium">{userName}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent 
+                  align="end" 
+                  className="w-56 bg-card/95 backdrop-blur-xl border-border/50 shadow-xl z-50"
+                >
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">{userName}</p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        09123456789
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="flex items-center gap-2 cursor-pointer">
+                      <User className="w-4 h-4" />
+                      <span>پنل کاربری</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile/settings" className="flex items-center gap-2 cursor-pointer">
+                      <Settings className="w-4 h-4" />
+                      <span>تنظیمات</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/support" className="flex items-center gap-2 cursor-pointer">
+                      <Headphones className="w-4 h-4" />
+                      <span>پشتیبانی</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem 
+                    className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive"
+                    onClick={() => {
+                      // TODO: Add logout logic
+                      setIsLoggedIn(false);
+                    }}
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>خروج از حساب</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link to="/login">
+                <Button className="gap-2 bg-gradient-to-r from-neon-blue to-neon-cyan hover:from-neon-blue/80 hover:to-neon-cyan/80 text-primary-foreground glow-neon-blue shadow-lg transition-all">
+                  <User className="w-4 h-4" />
+                  ورود / ثبت‌نام
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}

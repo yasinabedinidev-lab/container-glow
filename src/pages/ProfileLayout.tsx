@@ -13,14 +13,10 @@ const ProfileLayout = () => {
       
       <div className="pt-24 pb-20">
         <SidebarProvider defaultOpen={true}>
-          <div className="flex w-full min-h-[calc(100vh-176px)]">
+          <div className="flex w-full min-h-[calc(100vh-176px)] flex-row-reverse">
             <ProfileSidebar />
             
             <main className="flex-1 relative">
-              <div className="sticky top-24 z-10 bg-background/80 backdrop-blur-sm border-b border-border/50 px-4 py-2">
-                <SidebarTrigger className="hover:bg-accent/50" />
-              </div>
-              
               <div className="container mx-auto max-w-6xl px-4 py-8">
                 <Outlet />
               </div>
