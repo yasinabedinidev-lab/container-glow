@@ -11,15 +11,13 @@ const ProfileLayout = () => {
       <FloatingContainers />
       <Navbar />
       
-      <div className="pt-24 pb-20">
+      <div className="pt-28 pb-24 px-4">
         <SidebarProvider defaultOpen={true}>
-          <div className="flex w-full min-h-[calc(100vh-176px)] flex-row-reverse">
+          <div className="flex w-full min-h-[calc(100vh-208px)] gap-4 flex-row-reverse container mx-auto max-w-7xl">
             <ProfileSidebar />
             
             <main className="flex-1 relative">
-              <div className="container mx-auto max-w-6xl px-4 py-8">
-                <Outlet />
-              </div>
+              <Outlet />
             </main>
           </div>
         </SidebarProvider>

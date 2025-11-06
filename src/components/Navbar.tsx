@@ -100,55 +100,65 @@ const Navbar = () => {
             {isLoggedIn ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="gap-2 hover:bg-neon-cyan/10 transition-all">
-                    <div className="w-8 h-8 rounded-full bg-gradient-neon flex items-center justify-center">
+                  <Button 
+                    variant="ghost" 
+                    className="gap-2 hover:bg-neon-blue/10 transition-all border border-neon-blue/20 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-lg"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-gradient-neon flex items-center justify-center glow-neon-blue">
                       <User className="w-4 h-4 text-primary-foreground" />
                     </div>
-                    <span className="font-medium">{userName}</span>
+                    <span className="font-medium text-foreground">{userName}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent 
                   align="end" 
-                  className="w-56 bg-card/95 backdrop-blur-xl border-border/50 shadow-xl z-50"
+                  className="w-64 p-0 bg-card/95 backdrop-blur-lg border-neon-blue/30 shadow-2xl shadow-neon-blue/10"
                 >
-                  <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">{userName}</p>
-                      <p className="text-xs leading-none text-muted-foreground">
-                        09123456789
-                      </p>
+                  <div className="p-4 border-b border-border/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-neon flex items-center justify-center glow-neon-blue">
+                        <User className="w-5 h-5 text-primary-foreground" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-foreground truncate">{userName}</p>
+                        <p className="text-xs text-foreground/60 truncate">09123456789</p>
+                      </div>
                     </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile" className="flex items-center gap-2 cursor-pointer">
-                      <User className="w-4 h-4" />
-                      <span>پنل کاربری</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile/settings" className="flex items-center gap-2 cursor-pointer">
-                      <Settings className="w-4 h-4" />
-                      <span>تنظیمات</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/support" className="flex items-center gap-2 cursor-pointer">
-                      <Headphones className="w-4 h-4" />
-                      <span>پشتیبانی</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem 
-                    className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive"
-                    onClick={() => {
-                      // TODO: Add logout logic
-                      setIsLoggedIn(false);
-                    }}
-                  >
-                    <LogOut className="w-4 h-4" />
-                    <span>خروج از حساب</span>
-                  </DropdownMenuItem>
+                  </div>
+                  
+                  <div className="py-2">
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" className="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-neon-blue/5 transition-all">
+                        <User className="w-4 h-4 text-neon-cyan" />
+                        <span>پنل کاربری</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile/settings" className="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-neon-blue/5 transition-all">
+                        <Settings className="w-4 h-4 text-neon-cyan" />
+                        <span>تنظیمات</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/support" className="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-neon-blue/5 transition-all">
+                        <Headphones className="w-4 h-4 text-neon-cyan" />
+                        <span>پشتیبانی</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  </div>
+                  
+                  <div className="border-t border-border/50 p-2">
+                    <DropdownMenuItem 
+                      className="flex items-center gap-3 px-4 py-2 cursor-pointer text-destructive hover:bg-destructive/10 focus:text-destructive transition-all"
+                      onClick={() => {
+                        // TODO: Add logout logic
+                        setIsLoggedIn(false);
+                      }}
+                    >
+                      <LogOut className="w-4 h-4" />
+                      <span>خروج از حساب</span>
+                    </DropdownMenuItem>
+                  </div>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
