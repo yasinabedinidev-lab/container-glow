@@ -25,10 +25,10 @@ export function ProfileSidebar() {
   return (
     <Sidebar
       side="right"
-      className={`${open ? "w-72" : "w-20"} shrink-0`}
+      className={`${open ? "w-80" : "w-20"} shrink-0`}
       collapsible="icon"
     >
-      <SidebarContent className="fixed top-28 bottom-24 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border border-neon-blue/20 rounded-2xl shadow-2xl shadow-neon-blue/10">
+      <SidebarContent className="fixed top-28 bottom-24 right-4 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border border-neon-blue/20 rounded-2xl shadow-2xl shadow-neon-blue/10">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-cyan/5 pointer-events-none rounded-2xl" />
         
         <div className="relative z-10 h-full flex flex-col">

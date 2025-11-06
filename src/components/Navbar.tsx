@@ -34,9 +34,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50">
-      <div className="bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border border-neon-blue/20 shadow-2xl shadow-neon-blue/10 rounded-2xl">
+      <div className="bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-xl border border-neon-blue/20 shadow-2xl shadow-neon-blue/10 rounded-2xl max-w-7xl mx-auto">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-cyan/5 pointer-events-none rounded-2xl" />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="px-6 relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
@@ -102,12 +102,12 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="ghost" 
-                    className="gap-2 hover:bg-neon-blue/10 transition-all border border-neon-blue/20 bg-gradient-to-b from-card via-card/95 to-card/80 backdrop-blur-lg"
+                    className="gap-3 px-4 py-6 hover:bg-neon-blue/10 transition-all border border-neon-blue/30 bg-gradient-to-br from-card via-card/95 to-card/80 backdrop-blur-xl shadow-lg shadow-neon-blue/5 hover:shadow-neon-blue/20 hover:border-neon-blue/50"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gradient-neon flex items-center justify-center glow-neon-blue">
-                      <User className="w-4 h-4 text-primary-foreground" />
+                    <div className="w-10 h-10 rounded-full bg-gradient-neon flex items-center justify-center glow-neon-blue shadow-lg">
+                      <User className="w-5 h-5 text-primary-foreground" />
                     </div>
-                    <span className="font-medium text-foreground">{userName}</span>
+                    <span className="font-semibold text-foreground text-base">{userName}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent 
