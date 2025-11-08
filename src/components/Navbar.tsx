@@ -34,8 +34,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-4 left-4 right-4 z-50">
-      <div className="bg-card/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl max-w-7xl mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-primary/5 via-transparent to-red-primary/5 pointer-events-none rounded-2xl" />
+      <div className="bg-card/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl max-w-7xl mx-auto overflow-hidden">
         <div className="px-6 relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -102,10 +101,13 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="ghost" 
-                    className="gap-3 px-4 py-6 hover:bg-red-primary/10 transition-all border border-red-primary/30 bg-card/95 backdrop-blur-xl shadow-lg hover:shadow-red-primary/20 hover:border-red-primary/50"
+                    className="gap-3 px-5 py-3 h-auto hover:bg-red-primary/10 transition-all border-2 border-red-primary/40 bg-gradient-to-br from-card via-card to-red-primary/5 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-red-primary/20 hover:border-red-primary/60 rounded-xl group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-gradient-accent flex items-center justify-center glow-red shadow-lg">
-                      <User className="w-5 h-5 text-white" />
+                    <div className="relative">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-accent flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <User className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="absolute inset-0 bg-red-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <span className="font-semibold text-foreground text-base">{userName}</span>
                   </Button>
