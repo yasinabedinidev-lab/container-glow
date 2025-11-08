@@ -4,7 +4,7 @@ import { ArrowLeft, Container, Zap, Shield, Gauge, CheckCircle, Sparkles, Databa
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-32 px-4 md:px-8">
+    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden py-16">{/* Removed py-32 and px-4 since it's now inside a Card with padding */}
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Icons */}
@@ -66,7 +66,7 @@ const Hero = () => {
                 <Link to="/services">
                   <Button 
                     size="lg" 
-                    className="gap-2 bg-gradient-red-dark hover:opacity-90 px-8 py-6 text-lg text-white shadow-2xl hover:shadow-red-primary/30 transition-all group"
+                    className="gap-2 bg-gradient-red-dark hover:bg-background hover:text-red-primary hover:border-red-primary border-2 border-transparent px-8 py-6 text-lg text-white shadow-2xl transition-all group"
                   >
                     <Sparkles className="w-5 h-5 group-hover:animate-glow-pulse" />
                     شروع رایگان

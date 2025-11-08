@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Vazirmatn', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Poppins', 'Vazirmatn', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

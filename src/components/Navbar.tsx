@@ -19,8 +19,8 @@ import {
 const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // TODO: Replace with actual auth state
-  const userName = "کاربر نمونه"; // TODO: Replace with actual user name
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const userName = "yasin abedini";
 
   const navItems = [
     { path: "/", label: "صفحه اصلی" },
@@ -101,15 +101,12 @@ const Navbar = () => {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="ghost" 
-                    className="gap-3 px-5 py-3 h-auto hover:bg-red-primary/10 transition-all border-2 border-red-primary/40 bg-gradient-to-br from-card via-card to-red-primary/5 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-red-primary/20 hover:border-red-primary/60 rounded-xl group"
+                    className="gap-2 px-3 py-2 h-auto hover:bg-red-primary/10 transition-all border border-red-primary/20 bg-card/50 backdrop-blur-sm hover:border-red-primary/40 rounded-lg group"
                   >
-                    <div className="relative">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-accent flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <User className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-red-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-primary to-red-dark flex items-center justify-center shadow-md text-white font-bold text-sm">
+                      Y
                     </div>
-                    <span className="font-semibold text-foreground text-base">{userName}</span>
+                    <span className="text-sm text-foreground">{userName}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent 
@@ -118,8 +115,8 @@ const Navbar = () => {
                 >
                   <div className="p-4 border-b border-border/50">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-accent flex items-center justify-center glow-red">
-                        <User className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-primary to-red-dark flex items-center justify-center text-white font-bold">
+                        Y
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold text-foreground truncate">{userName}</p>

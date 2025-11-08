@@ -16,8 +16,14 @@ const Index = () => {
       <FloatingDockerIcons />
       <Navbar />
       
-      {/* Hero - No Box */}
-      <Hero />
+      {/* Hero - With Box */}
+      <div className="py-12 bg-gradient-to-b from-background to-primary/5">
+        <div className="container mx-auto px-4">
+          <Card className="bg-card/80 backdrop-blur-xl border-primary/20 p-8 md:p-12">
+            <Hero />
+          </Card>
+        </div>
+      </div>
       
       {/* PaaS Info - With Box */}
       <div className="py-12 bg-gradient-to-b from-background to-primary/5">
