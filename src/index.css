@@ -169,6 +169,7 @@ All colors MUST be HSL.
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rakkas', 'Vazirmatn', serif;
+    font-family: 'IRANYekanBold', 'IRANYekan', 'Vazirmatn', sans-serif;
+    font-weight: 800;
   }
 }

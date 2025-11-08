@@ -66,7 +66,7 @@ const Hero = () => {
                 <Link to="/services">
                   <Button 
                     size="lg" 
-                    className="gap-2 bg-gradient-red-dark hover:scale-105 px-8 py-6 text-lg text-white shadow-2xl hover:shadow-red-primary/40 transition-all group border-0"
+                    className="gap-2 bg-red-primary hover:bg-red-dark px-8 py-6 text-lg text-white shadow-2xl hover:shadow-red-primary/40 transition-all group border-0"
                   >
                     <Sparkles className="w-5 h-5 group-hover:animate-glow-pulse" />
                     شروع رایگان

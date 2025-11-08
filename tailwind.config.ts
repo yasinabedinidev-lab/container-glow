@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Vazirmatn', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Rakkas', 'Vazirmatn', 'serif'],
+        display: ['IRANYekanBold', 'IRANYekan', 'Vazirmatn', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
