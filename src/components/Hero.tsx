@@ -54,7 +54,7 @@ const Hero = () => {
                 در چند کلیک
               </h1>
 
-              <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
+              <p className="text-base md:text-lg text-foreground/70 max-w-lg mx-auto lg:mx-0">
                 فقط کافیه بگی چی می‌خوای - ما بقیه‌ش رو انجام میدیم.
                 بدون کد، بدون پیچیدگی، بدون سردرد.
               </p>
@@ -77,11 +77,11 @@ const Hero = () => {
               <div className="flex gap-6 justify-center lg:justify-start pt-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-xs text-muted-foreground">راه‌اندازی در ۳۰ ثانیه</span>
+                  <span className="text-xs text-foreground/60">راه‌اندازی در ۳۰ ثانیه</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-primary" />
-                  <span className="text-xs text-muted-foreground">+۵۰۰۰ کاربر فعال</span>
+                  <span className="text-xs text-foreground/60">+۵۰۰۰ کاربر فعال</span>
                 </div>
               </div>
             </div>

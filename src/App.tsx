@@ -19,6 +19,7 @@ import TicketsList from "./pages/TicketsList";
 import Cart from "./pages/Cart";
 import Invoice from "./pages/Invoice";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotificationsPage from "./pages/NotificationsPage";
 import Pricing from "./pages/Pricing";
 import Documentation from "./pages/Documentation";
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/cart" element={<Cart />} />
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/documentation" element={<Documentation />} />
