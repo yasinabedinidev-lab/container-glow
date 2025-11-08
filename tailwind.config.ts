@@ -50,14 +50,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        neon: {
-          blue: "hsl(var(--neon-blue))",
-          cyan: "hsl(var(--neon-cyan))",
+        red: {
+          primary: "hsl(var(--red-primary))",
+          dark: "hsl(var(--red-dark))",
+          light: "hsl(var(--red-light))",
         },
-        pastel: {
-          pink: "hsl(var(--pastel-pink))",
-          purple: "hsl(var(--pastel-purple))",
-          green: "hsl(var(--pastel-green))",
+        blue: {
+          accent: "hsl(var(--blue-accent))",
+        },
+        purple: {
+          accent: "hsl(var(--purple-accent))",
         },
       },
       borderRadius: {
