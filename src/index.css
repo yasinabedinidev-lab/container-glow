@@ -128,7 +128,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
     direction: rtl;
     background-image: 
       radial-gradient(circle at 20% 50%, hsl(var(--muted) / 0.3) 0%, transparent 50%),
@@ -166,5 +166,9 @@ All colors MUST be HSL.
   ::-moz-selection {
     background-color: hsl(var(--red-primary) / 0.3);
     color: hsl(var(--foreground));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rakkas', 'Vazirmatn', serif;
   }
 }

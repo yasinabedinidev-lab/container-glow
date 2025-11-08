@@ -47,7 +47,7 @@ const Hero = () => {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
                   <span className="block text-foreground">سرویس‌های ابری</span>
                   <span className="block mt-2 bg-gradient-accent bg-clip-text text-transparent animate-gradient-x bg-[length:200%_auto]">
                     در یک کلیک
@@ -66,7 +66,7 @@ const Hero = () => {
                 <Link to="/services">
                   <Button 
                     size="lg" 
-                    className="gap-2 bg-gradient-red-dark hover:bg-background hover:text-red-primary hover:border-red-primary border-2 border-transparent px-8 py-6 text-lg text-white shadow-2xl transition-all group"
+                    className="gap-2 bg-gradient-red-dark hover:scale-105 px-8 py-6 text-lg text-white shadow-2xl hover:shadow-red-primary/40 transition-all group border-0"
                   >
                     <Sparkles className="w-5 h-5 group-hover:animate-glow-pulse" />
                     شروع رایگان
@@ -77,9 +77,10 @@ const Hero = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="gap-2 px-8 py-6 text-lg border-2 border-red-primary/30 hover:border-red-primary/60 hover:bg-red-primary/5 transition-all"
+                    className="gap-2 px-8 py-6 text-lg border-2 border-red-primary bg-transparent text-red-primary hover:bg-red-primary hover:text-white hover:shadow-lg hover:shadow-red-primary/50 transition-all relative overflow-hidden group"
                   >
-                    مشاهده سرویس‌ها
+                    <span className="relative z-10">مشاهده سرویس‌ها</span>
+                    <div className="absolute inset-0 bg-red-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                   </Button>
                 </Link>
               </div>
@@ -119,7 +120,7 @@ const Hero = () => {
                   </div>
                   
                   {/* Text */}
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Docker City</h3>
+                  <h3 className="text-2xl font-display font-bold text-foreground mb-2">Docker City</h3>
                   <p className="text-sm text-foreground/60 text-center px-6">پلتفرم کانتینری پیشرفته</p>
                   
                   {/* Decorative Elements */}
